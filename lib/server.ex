@@ -5,16 +5,16 @@ defmodule Shortener.Server do
     GenServer.start_link(__MODULE__, %{}, opts)
   end
 
-  def init(state) do
-    {:ok, state}
-  end
-
   def shorten(pid, url, short) do
     GenServer.call(pid, {:shorten, short, url})
   end
 
   def url(pid, short) do
     GenServer.call(pid, {:url, short})
+  end
+
+  def init(state) do
+    {:ok, state}
   end
 
   def handle_call({:shorten, short, url}, _from, state) do
