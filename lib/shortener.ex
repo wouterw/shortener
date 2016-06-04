@@ -1,0 +1,2 @@
+defmodule Shortener do
+end
