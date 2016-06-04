@@ -16,7 +16,7 @@ defmodule ServerTest do
   end
 
   test "shortening to an existing alias", %{pid: pid} do
-    :ok == Shortener.Server.shorten(pid, "https://nephroflow.com", "nf")
+    :ok = Shortener.Server.shorten(pid, "https://nephroflow.com", "nf")
     assert {:error, :dupalias} == Shortener.Server.shorten(pid, "https://nephroflow.com", "nf")
   end
 end
